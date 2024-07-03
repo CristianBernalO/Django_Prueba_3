@@ -28,21 +28,19 @@
 
 <body>
     <nav class="navbar navbar-expand-lg">
-        <a class="navbar-brand" href="#">InnovateNow</a>
+        <a class="navbar-brand" href="index">InnovateNow</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
+
+                {%for navbar in Navbar %}
                 <li class="nav-item active">
-                    <a class="nav-link" href="index">Home</a>
+                    <a class="nav-link" href="{{navbar.url}}">{{navbar.nombre}}</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="quienesSomos">Quiénes Somos</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="servicios">Servicios</a>
-                </li>
+                {%endfor%}
+
             </ul>
         </div>
     </nav>
@@ -77,33 +75,17 @@
         </div>
 
         <div class="row mt-5 mb-5">
+            {%for testimonio in Testimonios%}
             <div class="col-lg-4">
                 <div class="card">
-                    <img src="../../static/img/persona1.webp" class="card-img-top" alt="Testimonio 1" height="400" width="530">
+                    <img src="../../static/img/{{testimonio.imagen_testimonio}}" class="card-img-top" alt="Testimonio 1" height="400" width="530">
                     <div class="card-body">
-                        <h5 class="card-title">Nest IT</h5>
-                        <p class="card-text">Nuestro negocio creció un 300% gracias a InnovateNow.</p>
+                        <h5 class="card-title">{{testimonio.nombre_persona}}</h5>
+                        <p class="card-text">{{testimonio.testimonio}}</p>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4">
-                <div class="card">
-                    <img src="../../static/img/persona2.jpg" class="card-img-top" alt="Testimonio 2" height="400" width="530">
-                    <div class="card-body">
-                        <h5 class="card-title">Skynet</h5>
-                        <p class="card-text">InnovateNow nos ayudó a encontrar inversores clave.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="card">
-                    <img src="../../static/img/persona3.jpg" class="card-img-top" alt="Testimonio 3" height="400" width="530">
-                    <div class="card-body">
-                        <h5 class="card-title">Umbrella</h5>
-                        <p class="card-text">La mejor decisión que tomamos fue unirnos a InnovateNow.</p>
-                    </div>
-                </div>
-            </div>
+            {% endfor %}
         </div>
     </div>
 

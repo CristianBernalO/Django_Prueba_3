@@ -8,7 +8,7 @@ class Navbar(models.Model):
     nombre = models.CharField(max_length=50)
     url = models.CharField(max_length=100)
 
-class quienesSomos(models.Model):
+class QuienesSomos(models.Model):
     id_quienes_somos = models.AutoField(db_column="idQuienesSomos", primary_key=True)
     titulo = models.CharField(max_length=100)
     cuerpo = models.TextField()
@@ -18,8 +18,10 @@ class Servicio(models.Model):
     nombre_servicio = models.CharField(max_length=50)
     tipo_servicio = models.CharField(max_length=50)
     descripcion = models.TextField()
+    nombre_imagen = models.CharField(max_length=100)
 
-class Testimonios(models.Model):
+class Testimonio(models.Model):
     id_testimonio = models.AutoField(db_column="idTestimonio", primary_key=True)
     nombre_persona = models.CharField(max_length=100)
     testimonio = models.TextField()
+    imagen_testimonio = models.CharField(max_length=100, null=True)
